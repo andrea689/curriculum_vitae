@@ -1,4 +1,5 @@
 import 'package:curriculum_vitae/components/nested_navigator.dart';
+import 'package:curriculum_vitae/pages/front_page_mobile.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,9 +14,17 @@ class HomePage extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Container(
-            width: 800,
-            child: NestedNavigator(),
+          child: LayoutBuilder(
+            builder: (context, constraint) {
+              if (constraint.maxWidth < 800) {
+                return FrontPageMobile();
+              } else {
+                return Container(
+                  width: 800,
+                  child: NestedNavigator(),
+                );
+              }
+            },
           ),
         ),
       ),

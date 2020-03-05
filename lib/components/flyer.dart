@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 class Flyer extends StatelessWidget {
   final Widget child;
   final Color color;
+  final bool mobile;
 
   Flyer({
     @required this.child,
     this.color = Colors.white,
+    this.mobile = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(50),
+      padding: mobile ? null : EdgeInsets.all(50),
       child: Center(
         child: Container(
           decoration: BoxDecoration(
